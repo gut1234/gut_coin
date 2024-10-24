@@ -1,0 +1,70 @@
+/* Container de registro */
+#register-container {
+    background-color: #2a2a2a;
+    border: 2px solid yellow;
+    padding: 25px;
+    width: 320px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 12px yellow;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Estilo do título no container de registro */
+#register-container h2 {
+    color: yellow;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+/* Grupos de inputs no registro */
+#register-container .input-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+#register-container .input-group label {
+    color: white;
+    font-size: 19px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+#register-container .input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    background-color: #444;
+    color: white;
+}
+
+/* Botão de registro */
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: rgb(255, 196, 0);
+}
+
+/* Links no container de registro */
+#register-container a {
+    display: block;
+    margin-top: 18px;
+    color: yellow;
+    text-decoration: none;
+}
+
+#register-container a:hover {
+    text-decoration: underline;
+}

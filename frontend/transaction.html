@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transferência</title>
+    <link rel="stylesheet" href="assets/global.css">
+    <link rel="stylesheet" href="assets/transaction.css">
+</head>
+<body>
+    <header>
+        <h1>Gut Coin</h1>
+    </header>
+    <main>
+        <div id="transaction-container">
+            <h2>Nova Transação</h2>
+            <form>
+              <div class="input-group">
+                <label for="receiver-id">ID do Recebedor</label>
+                <input type="text" id="receiver-id" name="receiver-id" required>
+              </div>
+              <div class="input-group">
+                <label for="transaction-password">Senha</label>
+                <input type="password" id="transaction-password" name="transaction-password" required>
+              </div>
+              <div class="input-group">
+                <label for="transaction-amount">Valor</label>
+                <input type="number" id="transaction-amount" name="transaction-amount" min="1" required>
+              </div>
+              <button type="submit" class="transaction-btn" onclick="makeTransaction()">Enviar</button>
+            </form>
+          </div>          
+    </main>
+</body>
+</html>

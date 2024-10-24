@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/global.css">
+  <link rel="stylesheet" href="assets/register.css">
+  <title>register</title>
+</head>
+<body>
+  <header>
+    <h1>Gut Coin</h1>
+  </header>
+  <main>
+    <div id="register-container">
+      <h2>Registrar</h2>
+      <form>
+        <div class="input-group">
+          <label for="new-username">Novo Usuário</label>
+          <input type="text" id="new-username" name="new-username" required>
+        </div>
+        <div class="input-group">
+          <label for="new-password">Nova Senha</label>
+          <input type="password" id="new-password" name="new-password" required>
+        </div>
+        <div class="input-group">
+          <label for="confirm-password">Confirme a Senha</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="register-btn" onclick="register()">Registrar</button>
+      </form>
+      <a href="index.html" class="login-link">Já tem uma conta? Entrar</a>
+    </div>
+    
+  </main>
+  <footer>
+    <p>Gutin du pvp</p>
+  </footer>
+</body>
+</html>

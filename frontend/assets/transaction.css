@@ -1,0 +1,58 @@
+/* Container de transação */
+#transaction-container {
+    background-color: #1f1f1f;
+    border: 2px solid lightgreen;
+    padding: 22px;
+    width: 310px;
+    margin: 0 auto;
+    border-radius: 11px;
+    box-shadow: 0 0 11px lightgreen;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Estilo do título no container de transação */
+#transaction-container h2 {
+    color: lightgreen;
+    font-size: 37px;
+    margin-bottom: 22px;
+}
+
+/* Grupos de inputs no container de transação */
+#transaction-container .input-group {
+    margin-bottom: 17px;
+    text-align: left;
+}
+
+#transaction-container .input-group label {
+    color: white;
+    font-size: 19px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+#transaction-container .input-group input {
+    width: 100%;
+    padding: 11px;
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+}
+
+/* Botão de transação */
+.transaction-btn {
+    width: 100%;
+    padding: 11px;
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.transaction-btn:hover {
+    background-color: limegreen;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>gut coin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
+  <link href="assets/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+  <header>
+    <h1>Gut Coin</h1>
+  </header>
+  <main>
+    <div id="login-container" class="hidden">
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn" onclick="login()">Entrar</button>
+        </form>
+        <a href="register.html" ss="new account">criar nova conta</a>
+    </div>
+    
+    <div id="functions-container" class="hidden">
+      <div id="balance-container">
+        <p id="user-balance">$10</p>
+      </div>
+      <div id="buttons-container">
+        <div class="button-row">
+          <a id="transferencia-link" class="function-button" href="transaction.html">transferencia</a>
+          <a id="transfer-log-link" class="function-button">transações</a>
+        </div>
+        <div class="button-row">
+          <a id="user-info-link" class="function-button">informações</a>
+          <a id="logout-link" class="function-button">sair</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Gutin du pvp</p>
+  </footer>
+  <script src="script/script.js"></script>
+</body>
+
+</html>
