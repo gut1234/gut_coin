@@ -13,22 +13,22 @@
 
 <body>
   <header>
-    <h1>Gut Coin</h1>
-  </header>
+    <a href="index.html">
+        <h1>Gut Coin</h1>
+    </a>
+</header>
   <main>
     <div id="login-container" class="hidden">
         <h2>Login</h2>
-        <form>
             <div class="input-group">
                 <label for="username">Usuário</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input-group">
                 <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
+                <input id="password" name="password" required>
             </div>
-            <button type="submit" class="login-btn" onclick="login()">Entrar</button>
-        </form>
+            <button class="login-btn" onclick="login()">Entrar</button>
         <a href="register.html" ss="new account">criar nova conta</a>
     </div>
     
@@ -39,10 +39,10 @@
       <div id="buttons-container">
         <div class="button-row">
           <a id="transferencia-link" class="function-button" href="transaction.html">transferencia</a>
-          <a id="transfer-log-link" class="function-button">transações</a>
+          <a id="transfer-log-link" class="function-button" href="transfer-log.html">transações</a>
         </div>
         <div class="button-row">
-          <a id="user-info-link" class="function-button">informações</a>
+          <a id="user-info-link" class="function-button" href="informations.html">informações</a>
           <a id="logout-link" class="function-button">sair</a>
         </div>
       </div>

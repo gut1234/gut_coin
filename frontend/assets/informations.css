@@ -1,0 +1,62 @@
+/* Container de informações */
+#info-container {
+    background-color: #2b2b2b;
+    border: 3px solid yellow;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px; /* Permite o ajuste em telas maiores */
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px yellow;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Estilo do título no container de informações */
+#info-container h2 {
+    color: yellow;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Grupos de informações */
+.info-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.info-group label {
+    color: white;
+    font-size: 28px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-group p {
+    font-size: 24px;
+    color: white;
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Media queries para telas menores (celulares) */
+@media (max-width: 600px) {
+    #info-container {
+        padding: 20px; /* Reduz o padding em telas pequenas */
+        border-radius: 10px;
+    }
+
+    #info-container h2 {
+        font-size: 36px; /* Diminui o tamanho da fonte do título */
+    }
+
+    .info-group label {
+        font-size: 22px; /* Ajusta o tamanho da fonte do label */
+    }
+
+    .info-group p {
+        font-size: 20px; /* Ajusta o tamanho da fonte dos dados */
+        padding: 10px;
+    }
+}

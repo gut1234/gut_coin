@@ -71,10 +71,6 @@ function parseUserData(data) { //faz um array com todos os usuarios
       return users;
 }
 
-function parseTransactionId(){
-
-}
-
 function createTrasactionId(senderId , senderPasscode, receiverId, value, Sdate){
     //o id de transação é o id do remetente + senha do remetente criptografada de acordo com a hora + o id do destinatário + valor da transação + a data + os digitos de confirmação
     let criptoPasscode = criptografePasscode(senderPasscode)
@@ -166,6 +162,15 @@ function parseTransactionId(id){
     };
 }
 
+function getBalances(mineLog){  // retorna o saldo de todos os usuários
+    const parsedLog = mineLog.split('balances:') //divide o log de mineração
+    if(parsedLog.length != 2){ //verifica se o log está correto
+        return false
+    }
+    const balances = JSON.parse(parsedLog[1]) // transforma em obj
+    return balances
+}
+
 module.exports = {
     getAllUSerNames,
     isUserNameValid,
@@ -178,6 +183,7 @@ module.exports = {
     parseUserData,
     getPasscodeByUserId,
     checkPasscodeValidity,
-    parseTransactionId
+    parseTransactionId,
+    getBalances
 };
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log de Transferências</title>
+    <link rel="stylesheet" href="assets/global.css">
+    <link rel="stylesheet" href="assets/transfer-log.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <h1>Gut Coin</h1>
+        </a>
+    </header>
+    <main>
+        <div id="log-container">
+            <h2>Histórico de Transferências</h2>
+            <div class="transaction-log">
+                <div class="transaction">
+                    <p>ID da Transação: <span class="transaction-id">#123456</span></p>
+                    <p>Status: <span class="transaction-status success">Sucesso</span></p>
+                    <p>Mensagem: <span class="transaction-message">Transferência realizada com sucesso</span></p>
+                </div>
+                <div class="transaction">
+                    <p>ID da Transação: <span class="transaction-id">#123457</span></p>
+                    <p>Status: <span class="transaction-status failed">Falhou</span></p>
+                    <p>Mensagem: <span class="transaction-message">Saldo insuficiente</span></p>
+                </div>
+                <!-- Mais transações podem ser listadas aqui -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>

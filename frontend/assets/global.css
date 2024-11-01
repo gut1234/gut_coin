@@ -23,6 +23,15 @@
     background-color: grey;
     font-size: 28px;
   }
+  header a {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor do título */
+  }
+
+   header a:hover {
+    cursor: pointer;
+  }
+
   
   /* Layout principal */
   main {

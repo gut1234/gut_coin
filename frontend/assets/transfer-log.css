@@ -1,0 +1,56 @@
+/* Container de log de transferências */
+#log-container {
+    background-color: #1e1e1e;
+    border: 2px solid #ffee00;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00bfff;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Título */
+#log-container h2 {
+    color: #00bfff;
+    font-size: 42px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Log de transações */
+.transaction-log {
+    max-height: 500px; /* Limita a altura do container para rolagem */
+    overflow-y: auto;
+}
+
+/* Cada transação */
+.transaction {
+    background-color: #2b2b2b;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.transaction p {
+    color: white;
+    font-size: 20px;
+}
+
+.transaction .transaction-id {
+    font-weight: bold;
+}
+
+.transaction .transaction-status.success {
+    color: lightgreen;
+}
+
+.transaction .transaction-status.failed {
+    color: red;
+}
+
+.transaction .transaction-message {
+    color: #ccc;
+}
