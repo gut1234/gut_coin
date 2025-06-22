@@ -6,7 +6,7 @@ app.use(cors());
 
 
 const mainFilePath = path.join(__dirname , '..' , 'backend' , 'main.js')
-const{newUser , createTransaction , validateLogin , getUserBalance} = require(mainFilePath)
+const{newUser , createTransaction , validateLogin , getUserBalance , getUserTransactions , getUserId} = require(mainFilePath)
 
 app.use(express.static(path.join(__dirname, '..', 'frontend')))
 app.use(express.json())
@@ -55,6 +55,28 @@ app.post('/getBalance' , (req , res) => {
     const {userName} = req.body
     const result = getUserBalance(userName)
     res.send(String(result))
+})
+
+app.post('/newTransaction' , (req , res) => {
+    const {senderName, receiverId, senderPasscode, value} = req.body
+    const result = createTransaction(senderName , receiverId , senderPasscode , value)
+    res.send(result)
+})
+
+app.post('/getUserTransactions' , (req ,res) => {
+    const {userName} = req.body
+    const result = getUserTransactions(userName)
+    res.send(result)
+})
+
+app.post('/getUserInformations' , (req , res) => {
+    const {userName} = req.body
+    const userId = getUserId(userName)
+    const userBalance = getUserBalance(userName)
+    res.json({
+        userId: userId,
+        userBalance: userBalance
+    })
 })
 
 app.listen(3300 , ()=>{

@@ -73,3 +73,11 @@ async function getBalance(){ //função que puxa op balanço do servidor
     alert('algo deu errado ;-;');
   }
 }
+
+function logout() {
+  // Remover dados de sessão armazenados
+  sessionStorage.removeItem('isLoggedIn');
+  sessionStorage.removeItem('userName');
+  loggedUserName = null;
+  window.location.href = '/index.html'
+}

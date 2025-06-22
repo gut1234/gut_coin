@@ -27,8 +27,9 @@ function mine(){ // realiza a verificação de todas as transações atualiza o 
         transactionsStatus += `${transactions[i]} sucess: ${result.result} message: ${result.message} \n`
     }
     fs.appendFileSync('data/lastMine.txt' , transactionsStatus)
-    fs.appendFileSync('data/lastMine.txt' , 'balances: \n')
+    fs.appendFileSync('data/lastMine.txt' , 'balances: (s) \n')
     fs.appendFileSync('data/lastMine.txt' , JSON.stringify(balances))
+    fs.appendFileSync('data/lastMine.txt', '(s)\n end')
 }
 
 function validateTransaction(id) { //checa se uma transação é válida baseada em seu id
@@ -63,7 +64,7 @@ function updateBalance(id){ // atualiza o saldo de acordo com a transação
     const {senderId , receiverId , value} = idParts
     balances[senderId] -= value
     if(balances[receiverId]){
-        balances[receiverId] += value
+        balances[receiverId] = Number(balances[receiverId]) + Number(value)
     }else{
         balances[receiverId] = value
     }

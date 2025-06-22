@@ -1,6 +1,6 @@
 const fs = require('fs');
-const data = fs.readFileSync('data/data.txt', 'utf8'); //dados dos usuarios
-const mineLog = fs.readFileSync('data/lastMine.txt' , 'utf8')
+let data = fs.readFileSync('data/data.txt', 'utf8'); //dados dos usuarios
+let mineLog = fs.readFileSync('data/lastMine.txt' , 'utf8')
 
 const {
     getAllUSerNames,
@@ -13,12 +13,39 @@ const {
     getUserIdByname,
     parseUserData,
     getPasscodeByUserId,
-    getBalances
+    getBalances,
+    parseMineLog,
+    parseTransactionId
 } = require('./usefulFunctions'); //importa as funções globais
 
 
 let users = parseUserData(data) // transforma os dados em um arquivo
+let balances = getBalances(mineLog)
 
+
+function reloadUserData() { // recarrega os dados após alterados
+  data = fs.readFileSync('data/data.txt', 'utf8')
+  users = parseUserData(data)
+}
+
+function reloadMineLog(){
+  mineLog = fs.readFileSync('data/lastMine.txt' , 'utf8')
+  if(mineLog.includes('end')){
+      balances = getBalances(mineLog)
+  }
+}
+
+fs.watch('data/data.txt', (eventType) => { //monitoramento do arquivo
+  if (eventType === 'change') {
+      reloadUserData()
+  }
+})
+
+fs.watch('data/lastMine.txt' , (e) => { //monitoramento do arquivo
+  if (e === 'change') {
+    reloadMineLog()
+}
+})
 
 function newUser(userName , passcode){ //cria um novo usuario e o registra no banco de dados
   if(isUserNameValid(userName , users) && isPasscodeValid(passcode)){ //verifica se o nome de usuario e a senha são válidos
@@ -29,12 +56,15 @@ function newUser(userName , passcode){ //cria um novo usuario e o registra no ba
   }else{
     return 'Nome de usuário ou senha inválidos'
   }
+  reloadUserData()
 }
 
 function createTransaction (senderName , receiverId , senderPasscode , value){ //cria uma nova transação e a registra no log de transações sua validez será verificada com o minerador
   let senderId = getUserIdByname(senderName , users)
   let transactionId = createTrasactionId(senderId , senderPasscode , receiverId , value)
   fs.appendFileSync('data/log.txt' , transactionId + `\n`)
+
+  return 'transação enviada com sucesso veja no log de transações se ela foi processada'
 }
 
 function validateLogin(name , passcode){ //função que verifica se a tentativa de login é válida
@@ -52,8 +82,7 @@ function validateLogin(name , passcode){ //função que verifica se a tentativa 
   }
 }
 
-function getUserBalance(userName){ 
-  const balances = getBalances(mineLog)
+function getUserBalance(userName){ //retorna o saldo
   const userId = getUserIdByname(userName , users)
   if(!balances){
     return 'erro'
@@ -64,10 +93,32 @@ function getUserBalance(userName){
   return balances[userId]
 }
 
+function getUserTransactions(name){
+  let userTransactions = []
+  const trasactions = parseMineLog(mineLog)
+  const userId = getUserIdByname(name , users)
+  if(!trasactions){
+    return 'erro'
+  }
+  for(let t of trasactions){
+    const {senderId} = parseTransactionId(t.id)
+    if(senderId == userId){
+      userTransactions.push(t)
+    }
+  }
+  return userTransactions
+
+}
+function getUserId(userName){
+  return getUserIdByname(userName , users)
+}
+
 
 module.exports = {
   newUser,
   createTransaction,
   validateLogin,
-  getUserBalance
+  getUserBalance,
+  getUserTransactions,
+  getUserId
 }

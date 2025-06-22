@@ -111,10 +111,7 @@ function criptografePasscode(passcode, sDate){
 }
 
 function createConfirmationCode(senderId , criptografePasscode, receiverId){ //cria um códico de confirmação para o id de transação
-    console.log(senderId)
-    let index1 = Math.random()[2]
-    let index2 = Math.random()[2]
-    let confirmationCode = `${String(criptografePasscode)[index1]}${String(receiverId)[index2]}`
+    let confirmationCode = 12
     return confirmationCode
 }
 
@@ -163,12 +160,34 @@ function parseTransactionId(id){
 }
 
 function getBalances(mineLog){  // retorna o saldo de todos os usuários
-    const parsedLog = mineLog.split('balances:') //divide o log de mineração
-    if(parsedLog.length != 2){ //verifica se o log está correto
+    const parsedLog = mineLog.split('(s)') //divide o log de mineração
+    if(parsedLog.length != 3){ //verifica se o log está correto
         return false
     }
     const balances = JSON.parse(parsedLog[1]) // transforma em obj
     return balances
+}
+
+function parseMineLog(mineLog){
+    const parsedLog = mineLog.split('(s)')
+    if(parsedLog.length != 3){
+        return false
+    }
+    const rawTransactions = parsedLog[0]
+
+
+    const transactionRegex = /(.+?) sucess: (true|false) message: (.+)/g
+    let match
+    let transactions = []
+    while ((match = transactionRegex.exec(rawTransactions)) !== null) {
+      const [_, id, success, message] = match
+      transactions.push({
+          id: id.trim(),
+          sucesso: success === "true",
+          mensagem: message.trim()
+      })
+  }
+  return transactions
 }
 
 module.exports = {
@@ -184,6 +203,7 @@ module.exports = {
     getPasscodeByUserId,
     checkPasscodeValidity,
     parseTransactionId,
-    getBalances
+    getBalances,
+    parseMineLog
 };
 

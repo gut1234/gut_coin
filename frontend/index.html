@@ -33,8 +33,9 @@
     </div>
     
     <div id="functions-container" class="hidden">
-      <div id="balance-container">
-        <p id="user-balance">$10</p>
+      <div id="balance-container" class="balance-card">
+        <p class="balance-label">Saldo disponível:</p>
+        <p id="user-balance" class="balance-amount">$10</p>
       </div>
       <div id="buttons-container">
         <div class="button-row">
@@ -43,7 +44,7 @@
         </div>
         <div class="button-row">
           <a id="user-info-link" class="function-button" href="informations.html">informações</a>
-          <a id="logout-link" class="function-button">sair</a>
+          <a id="logout-link" class="function-button" onclick="logout()">sair</a>
         </div>
       </div>
     </div>
